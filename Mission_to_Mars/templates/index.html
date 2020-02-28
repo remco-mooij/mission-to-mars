@@ -2,25 +2,78 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+  <meta char="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Costa Rica Weather</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
   <div class="container-fluid">
     <div class="jumbotron text-center">
-      <h1>Visit the...</h1>
-      <p>Beach. Rainforest. Volcano. Tree House. Sloths.</p>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data!</a></p>
     </div>
-    <img src="{{ vacation.sloth_img }}" alt="Sloth">
-    <h2>The typical weather in Costa Rica is:</h2>
-    <h3>Max Temp: {{ vacation.max_temp }}</h3>
-    <h3>Min Temp: {{ vacation.min_temp }}</h3>
-  </div>
+
+    <div class="row col-sm-12">
+        <h2>Latest Mars News</h2>
+      
+    </div>
+    <div class="row col-sm-6">
+          <strong> {{ mars.news_title }} </strong>
+          <p> {{ mars.news_p }} </p>
+    </div>
+    <br>
+    <br>
+
+    <div class="row">
+      <div class="col-sm-7">
+        <h2>Featured Mars Image</h2>
+        <img class="img_size" src="{{ mars.featured_image_url }}" alt="img" >
+      </div>
+
+      <div class="col-sm-4">
+        <h2 class="title">Mars Weather</h2>
+        <div> {{ mars.mars_weather }} </div>
+      </div>
+
+      <div class="row col-sm-5">
+        <h2>Mars Facts</h2>
+      </div>
+
+      <div class="row col-sm-5">
+       {{ mars.mars_facts|safe }}
+      </div>
+
+    </div>
+
+    <div class="row">
+      <h2 class="title">Mars Hemispheres</h2>
+      <div class="wrapper"></div>
+          {% for image in mars.mars_hemispheres %}
+          <p> {{image.title}} </p>
+          <img src="{{image.img_url}}" alt="img">
+          {% endfor %}
+  
+      </div>
+
+    </div>
+
+    </div>
+
+        
+        
+    
+      
+    
   </div>
 </body>
 

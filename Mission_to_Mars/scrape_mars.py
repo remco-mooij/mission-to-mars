@@ -2,6 +2,7 @@
 from splinter import Browser
 from bs4 import BeautifulSoup
 import requests
+import time
 
 def init_browser():
     executable_path = {'executable_path': 'chromedriver.exe'}
@@ -36,27 +37,30 @@ def scrape():
     # featured_img_url string:
     featured_image_url = base_url + img_url
     
-#     # 3. Find weather tweet
-#     twitter_url = "https://twitter.com/marswxreport?lang=en"
-#     # browser.visit(twitter_url)
-#     # Function to convert a list to a string,
-#     # url: https://www.geeksforgeeks.org/python-program-to-convert-a-list-to-string/
-#     def listToString(list):  
-#         str1 = " " 
-#         return (str1.join(list)) 
+    # 3. Find weather tweet
+    twitter_url = "https://twitter.com/marswxreport?lang=en"
+    browser.visit(twitter_url)
+    time.sleep(4)
+    # Function to convert a list to a string,
+    # url: https://www.geeksforgeeks.org/python-program-to-convert-a-list-to-string/
+    def listToString(list):  
+        str1 = " " 
+        return (str1.join(list)) 
     
-#     tweet_list = browser.find_by_css('div > div > div > span')
-#     list_of_lists = []
-#     for i in tweet_list:
-#         twitter_data = i.text
-#         data_converted = twitter_data.split('·')
-#         list_of_lists.append(data_converted)
-#     tweet_data = [''.join(x) for x in list_of_lists]
-#     tweet_data = listToString(tweet_data)
-#     tweet_list = tweet_data.split("@MarsWxReport")
+    tweet_list = browser.find_by_css('div > div > span')
     
-#     # tweet string:
-#     mars_weather = tweet_list[2].strip().replace('\n', " ")
+    list_of_lists = []
+    for i in tweet_list:
+        twitter_data = i.text
+        data_converted = twitter_data.split('·')
+        list_of_lists.append(data_converted)
+    tweet_data = [''.join(x) for x in list_of_lists]
+    tweet_data = listToString(tweet_data)
+    tweet_list = tweet_data.split("@MarsWxReport")
+    
+    # tweet string:
+    mars_weather = tweet_list[2].strip()
+    mars_weather = mars_weather.replace('\n', " ")
     
     # 4. Find Mars facts
     facts_url = "https://space-facts.com/mars/"
@@ -65,7 +69,7 @@ def scrape():
     soup = BeautifulSoup(html, 'html.parser')
     
     # html table:
-    html_table = soup.find("table", id="tablepress-p-mars-no-2")
+    html_table = soup.find("table", id="tablepress-p-mars-no-2").prettify()
     
     # 5. Find hemispheres image urls
     hemi_url = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
@@ -124,8 +128,10 @@ def scrape():
     ]
 
     dictionary = {
+        'news_title': news_title,
+        'news_p': news_p,
         'featured_image_url': featured_image_url,
-#         'mars_weather': mars_weather,
+        'mars_weather': mars_weather,
         'mars_facts': html_table,
         'mars_hemispheres': hemisphere_image_urls
     }
