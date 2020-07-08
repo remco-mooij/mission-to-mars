@@ -1,34 +1,57 @@
+body {
+  font-family: 'Monda', sans-serif;
+}
+
 .jumbotron {
-    background-image: url("../images/mars.jpg");
-    height: 500px;
+  background-image: url("../images/mars.jpg");
+  height: 500px;
 }
 
 .jumbotron h1 {
-    color: white;
-    margin-top: 5%;
-    margin-bottom: 15px;
+  color: white;
+  margin-top: 5%;
+  margin-bottom: 15px;
+}
+
+.scraped-text {
+  font-size: 20px;
 }
 
 
-.title {
-    font-weight: bold;
-    font-size: 32px;
+.home h1 {
+  font-size: 50px;
 }
 
-.img_size {
-    width: 100%;
-    height: auto;
-    max-height: 550px;
-    max-width: 550px;
+
+.content-width {
+  max-width: 90%;
+  max-height: 100%;
+  margin-left: 0%;
 }
 
-.wrapper {
-    display: block;
-    text-align: center;
-    justify-content: center;
+.hemi-hr {
+    max-width: 80%;
 }
 
-.wrapper img {
+.hemispheres {
+  display: grid;
+  grid-template-columns: 690px 690px;
+  grid-column-gap: 100px;
+  justify-content: center;
+  padding: 0px;
+}
+
+.hemispheres img {
+  margin: 0px 0px 20px;
+  padding: 0%;
+  max-width: 100%
+}
+
+.hemispheres p {
+    font-size: 30px;
+}
+
+/* .wrapper img {
     display: inline-block;
     width: auto;
     height: auto;
@@ -36,4 +59,4 @@
     max-height: 250px;    
     margin-top: -10px;
     margin-bottom: 20px;
-}
+} */

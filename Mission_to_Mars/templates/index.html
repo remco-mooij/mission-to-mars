@@ -6,67 +6,90 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mission to Mars</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Monda&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="../static/css/style.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-    crossorigin="anonymous"></script>
+  
 </head>
 
 <body>
 
-  <div class="container-fluid">
+  <div class="container-fluid home">
     <div class="jumbotron text-center">
       <h1>Mission to Mars</h1>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data!</a></p>
     </div>
+  </div>
 
-    <div class="row col-sm-12">
-        <h2>Latest Mars News</h2>
+  <div class="container-fluid">
+
+    <div class="row justify-content-center">
+
+      <div class="col-sm-12 col-md-5">
+          <div>
+          <h2>Latest Mars News</h2>
+          <hr class="content-width">
+          <strong class="scraped-text"> {{ mars.news_title }} </strong>
+          <p class="scraped-text": 24px;"> {{ mars.news_p }} </p>
+        </div>
+        <br>
+        <div class="mars-data">
+          <h2>Featured Mars Image</h2>
+          <hr class="content-width">
+          <img class="content-width" src="{{ mars.featured_image_url }}" alt="img" >
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-4">
+        <div>
+          <h2>Mars Weather</h2>
+          <hr>
+          <div class="scraped-text"> {{ mars.mars_weather }} </div>
+        </div>
+
+        <br><br>
+
+        <div>
+          <h2>Mars Facts</h2>
+          <hr>  
+          <div class="scraped-text">
+            {{ mars.mars_facts|safe }}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <br><br><br>
+
+  <div class="container-fluid">
+
+    <div class="row justify-content-center">
+      <div class="col-md-12 text-center">
+
       
-    </div>
-    <div class="row col-sm-6">
-          <strong> {{ mars.news_title }} </strong>
-          <p> {{ mars.news_p }} </p>
-    </div>
-    <br>
-    <br>
-
-    <div class="row">
-      <div class="col-sm-7">
-        <h2>Featured Mars Image</h2>
-        <img class="img_size" src="{{ mars.featured_image_url }}" alt="img" >
-      </div>
-
-      <div class="col-sm-4">
-        <h2 class="title">Mars Weather</h2>
-        <div> {{ mars.mars_weather }} </div>
-      </div>
-
-      <div class="row col-sm-5">
-        <h2>Mars Facts</h2>
-      </div>
-
-      <div class="row col-sm-5">
-       {{ mars.mars_facts|safe }}
-      </div>
-
-    </div>
-
-    <div class="row">
       <h2 class="title">Mars Hemispheres</h2>
-      <div class="wrapper"></div>
+      <hr class="hemi-hr">
+      <div class="hemispheres">
           {% for image in mars.mars_hemispheres %}
-          <p> {{image.title}} </p>
-          <img src="{{image.img_url}}" alt="img">
+          <div class="text-center" style="padding: 0px; margin: 0px 0px 0px;">
+            <p> {{image.title}} </p>
+            <img src="{{image.img_url}}" alt="img">
+          </div>
           {% endfor %}
-  
       </div>
-
     </div>
+  
+  
+    </div>
+
+  </div>
+  
+      
+
+
+    
 
     </div>
 
@@ -76,6 +99,8 @@
       
     
   </div>
+
+</div>
 </body>
 
 </html>
