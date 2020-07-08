@@ -29,10 +29,6 @@ body {
   margin-left: 0%;
 }
 
-.hemi-hr {
-    max-width: 80%;
-}
-
 .hemispheres {
   display: grid;
   grid-template-columns: 690px 690px;
@@ -42,7 +38,7 @@ body {
 }
 
 .hemispheres img {
-  margin: 0px 0px 20px;
+  margin: 0px 0px 40px;
   padding: 0%;
   max-width: 100%
 }
