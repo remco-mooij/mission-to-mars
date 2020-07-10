@@ -21,6 +21,7 @@
     </div>
   </div>
 
+  <!--Mars news & info-->
   <div class="container-fluid">
 
     <div class="row justify-content-center">
@@ -63,44 +64,38 @@
 
   <br><br><br>
 
+  <!--Mars hemisphere images-->
   <div class="container-fluid">
 
     <div class="row justify-content-center">
-      <div class="col-md-9 text-center">
-
-      
-      <h2 class="title">Mars Hemispheres</h2>
-      <hr>
-      <div class="hemispheres">
-          {% for image in mars.mars_hemispheres %}
-          <div class="text-center" style="padding: 0px; margin: 0px 0px 0px;">
-            <p> {{image.title}} </p>
-            <img src="{{image.img_url}}" alt="img">
-          </div>
-          {% endfor %}
+      <div class="col-md-9 text-center">   
+        <h2 class="title">Mars Hemispheres</h2>
+        <hr>
+        <div class="hemispheres">
+            {% for image in mars.mars_hemispheres %}
+            <div class="text-center" style="padding: 0px; margin: 0px 0px 0px;">
+              <p> {{image.title}} </p>
+              <img src="{{image.img_url}}" alt="img">
+            </div>
+            {% endfor %}
+        </div>
       </div>
     </div>
-  
-  
-    </div>
 
   </div>
   
-      
-
-
-    
-
+  <footer class="footer">
+    <div class="container-fluid text-center">   
+      <a href="https://github.com/remco-mooij/mission-to-mars" target="_blank">
+        <img src="../static/images/GitHub-Mark-32px.png">
+      </a>
+      <p class="text text-center" style="margin-top:5px;">
+        <small>Copyright © 2020 Remco Mooij</br>
+          UNC CHAPEL HILL © Data Analytics Boot Camp</small>
+      </p>
     </div>
+  </footer>
 
-        
-        
-    
-      
-    
-  </div>
-
-</div>
 </body>
 
 </html>
