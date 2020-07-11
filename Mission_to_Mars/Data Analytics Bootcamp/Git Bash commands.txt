@@ -1,8 +1,0 @@
-pwd: print working directory
-clear: clear all data on screen
-rm: remove
-rm -r: delete folder and everything in it
-rm -rf remove folder forced (override) -if operating system tries to prevent you from deleting)
-mkdir: make directory
-touch: create file
-explorer . (open . in mac): open op folder in explorer (or finder)
