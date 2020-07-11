@@ -1,4 +1,4 @@
-![alt text](https://github.com/remco-mooij/mission-to-mars/blob/master/static/images/mission-to-mars.png)
+![Mars](https://github.com/remco-mooij/mission-to-mars/blob/master/static/images/mission-to-mars.png)
 
 This is a simple web app that displays recent data about Mars. It scrapes various websites such as Twitter and the NASA sites, adds the scraped data to a MongoDB database and displays it on a single webpage.
 
